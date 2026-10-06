@@ -1,0 +1,22 @@
+# Local tooling and editor state; never publish it with the site.
+.openai/
+.codex/
+.agents/
+.vscode/
+.idea/
+
+# Secrets and dependencies (not required by this static website).
+.env
+.env.*
+!.env.example
+node_modules/
+.wrangler/
+
+# Temporary files and operating system metadata.
+*.log
+*.tmp
+*.bak
+__pycache__/
+.DS_Store
+Thumbs.db
+Desktop.ini
