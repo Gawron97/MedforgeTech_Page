@@ -1,0 +1,13 @@
+{
+  "send": "Wyślij wiadomość",
+  "sending": "Wysyłanie…",
+  "success": "Dziękujemy! Twoja wiadomość została wysłana.",
+  "error": "Nie udało się wysłać wiadomości. Twoja treść została zachowana. Spróbuj ponownie później.",
+  "uncertain": "Nie udało się potwierdzić wysłania wiadomości. Twoja treść została zachowana. Odczekaj przed ponowną próbą.",
+  "unavailable": "Formularz jest chwilowo niedostępny. Spróbuj ponownie później.",
+  "verification": "Dokończ weryfikację przed wysłaniem wiadomości.",
+  "verificationError": "Nie udało się ukończyć weryfikacji. Otwórz formularz ponownie, aby spróbować jeszcze raz.",
+  "rateLimit": "Zbyt wiele prób wysłania. Odczekaj kilka minut i spróbuj ponownie.",
+  "invalid": "Sprawdź imię, adres e-mail i wiadomość, a następnie spróbuj ponownie.",
+  "whitespace": "Wpisz treść — same spacje nie wystarczą."
+}

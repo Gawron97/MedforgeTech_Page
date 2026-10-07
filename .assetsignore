@@ -1,0 +1,10 @@
+# Keep setup notes and local configuration out of the public static assets.
+*.md
+wrangler.*
+package*.json
+.assetsignore
+.git/**
+.wrangler/**
+node_modules/**
+.dev.vars*
+.env*
