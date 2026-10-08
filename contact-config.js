@@ -3,5 +3,5 @@ window.contactFormConfig = {
   endpoint: "/api/contact",
   // Add the public site key from your Cloudflare Turnstile widget.
   // Sending stays disabled until the widget is configured and verified.
-  turnstileSiteKey: "",
+  turnstileSiteKey: "0x4AAAAAAFRkJWWGkylUvLDb",
 };
