@@ -2,7 +2,7 @@
 
 Frontend jest przygotowany w `index.html` (PL) i `en.html` (EN), ze wspólnymi
 stylami i obsługą formularza w `contact-form.js`. Kliknięcie w sekcji kontaktowej rozwija formularz,
-a link w stopce prowadzi bezpośrednio do niego. Kod Workera nie jest częścią zmian.
+a link w stopce przewija do sekcji kontaktu bez rozwijania formularza. Kod Workera nie jest częścią zmian.
 Plik `.assetsignore` wyklucza instrukcje i lokalne pliki konfiguracyjne z publikowanych zasobów.
 
 ## Organizacja plików
@@ -12,6 +12,12 @@ Plik `.assetsignore` wyklucza instrukcje i lokalne pliki konfiguracyjne z publik
 - `contact-form.js`: wspólna logika formularza bez tekstów językowych.
 - `locales/pl.json` / `locales/en.json`: komunikaty używane przez formularz.
 - `contact-config.js`: publiczne ustawienia połączenia z Workerem i Turnstile.
+
+`contact-form.js` jest ładowany jako moduł. Elementy HTML i stan formularza są
+przechowywane na poziomie modułu, a zdarzenia wskazują bezpośrednio nazwane funkcje.
+`initContactForm()` ładuje komunikaty i podpina zdarzenia. Kolejne bloki obsługują
+walidację, Turnstile i wysyłanie wiadomości. Otwieranie panelu obsługuje natywny
+element HTML `<details>` po kliknięciu `<summary>`.
 
 Formularz wybiera JSON na podstawie `<html lang="pl">` lub `<html lang="en">`.
 Oba słowniki mają te same klucze. Nie trzeba zmieniać JS, aby poprawić komunikat.
