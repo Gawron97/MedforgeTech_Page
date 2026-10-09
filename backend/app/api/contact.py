@@ -13,7 +13,7 @@ async def contact(
 
     await turnstile.verify_turnstile(
         token=payload.turnstileToken,
-        secret=env["TURNSTILE_SECRET"],
+        secret=env.TURNSTILE_SECRET,
         expected_action="contact",
     )
 
