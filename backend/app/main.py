@@ -3,6 +3,9 @@ from workers import asgi
 
 from application import app
 
+import api
+import errors
+
 import logging
 
 logging.basicConfig(

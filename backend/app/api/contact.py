@@ -1,7 +1,7 @@
 from fastapi import Request
 
 from application import app
-from schemas import ContactRequest, ContactResponse
+from schemas.contact import ContactRequest, ContactResponse
 from security import turnstile
 
 @app.post("/api/contact", response_model=ContactResponse)

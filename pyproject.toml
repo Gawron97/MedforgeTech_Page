@@ -11,3 +11,7 @@ dev = [
     "workers-py",
     "workers-runtime-sdk"
 ]
+
+[tool.setuptools.packages.find]
+where = ["backend"]
+include = ["app*"]
