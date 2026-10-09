@@ -1,11 +1,12 @@
 import logging
 
-from fastapi import FastAPI, Request
+from fastapi import Request
 from fastapi.responses import JSONResponse
+
+from application import app
 
 from errors.exceptions import AppError
 
-app = FastAPI()
 logger = logging.getLogger(__name__)
 
 @app.exception_handler(AppError)

@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from workers import asgi
 
+from application import app
+
 import logging
 
 logging.basicConfig(
@@ -8,5 +10,4 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
 
-app = FastAPI()
 Default = asgi.entrypoint(app)
