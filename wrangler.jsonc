@@ -1,7 +1,8 @@
 {
   "name": "medforgetech-page",
   "compatibility_date": "2026-10-08",
-  "main": "src/worker.js",
+  "compatibility_flags": ["python_workers"],
+  "main": "backend/app/main.py",
 
   "assets": {
     "directory": ".",
