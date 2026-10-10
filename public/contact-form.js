@@ -22,7 +22,7 @@ async function initContactForm() {
   }
 
   if (!config.turnstileSiteKey) {
-    showStatus("unavailable", "error");
+    showStatus("INTERNAL_ERROR", "error");
     return;
   }
 
@@ -70,7 +70,7 @@ function renderVerification() {
       "error-callback": verificationFailed,
     });
   } catch {
-    showStatus("verificationError", "error");
+    showStatus("VERIFICATION_UNAVAILABLE", "error");
   }
   loading = false;
 }
@@ -90,13 +90,13 @@ function verificationExpired() {
 function verificationFailed() {
   token = "";
   button.disabled = true;
-  if (!sending) showStatus("verificationError", "verification");
+  if (!sending) showStatus("VERIFICATION_FAILED", "verification");
 }
 
 function verificationScriptFailed(event) {
   loading = false;
   event.currentTarget.remove();
-  showStatus("verificationError", "error");
+  showStatus("VERIFICATION_UNAVAILABLE", "error");
 }
 
 async function submitContactForm(event) {
@@ -107,7 +107,7 @@ async function submitContactForm(event) {
   const payload = {};
   for (const name of ["name", "email", "message"]) {
     payload[name] = form.elements.namedItem(name).value.trim();
-    if (!payload[name]) return showStatus("invalid", "error");
+    if (!payload[name]) return showStatus("whitespace", "error");
   }
 
   setSending(true);
@@ -122,10 +122,16 @@ async function submitContactForm(event) {
       signal: controller.signal,
     });
     if (!response.ok) {
-      const errors = { 400: "invalid", 422: "invalid", 403: "verification", 429: "rateLimit" };
-      return showStatus(errors[response.status] || "error", "error");
+      const body = await response.json().catch(() => null);
+      const code = body?.code;
+      const messageKey =
+        typeof code === "string" &&
+        Object.hasOwn(messages, code)
+          ? code
+          : "INTERNAL_ERROR";
+      return showStatus(messageKey, "error");
     }
-    if ((await response.json()).success !== true) return showStatus("error", "error");
+    if ((await response.json()).success !== true) return showStatus("INTERNAL_ERROR", "error");
     form.reset();
     showStatus("success", "success");
   } catch {

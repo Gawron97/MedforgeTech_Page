@@ -4,6 +4,10 @@
   "compatibility_flags": ["python_workers"],
   "main": "backend/app/main.py",
 
+  "vars": {
+    "TURNSTILE_HOSTNAME": "medforge.tech"
+  },
+
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",

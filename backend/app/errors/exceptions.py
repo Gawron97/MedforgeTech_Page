@@ -7,6 +7,10 @@ class AppError(Exception):
         self.message = message
         super().__init__(message or self.code)
 
+class InvalidRequestError(AppError):
+    status_code = 422
+    code = "INVALID_REQUEST"
+
 class TurnstileRejectedError(AppError):
     status_code = 403
     code = "VERIFICATION_FAILED"

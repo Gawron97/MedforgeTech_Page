@@ -2,12 +2,11 @@
   "send": "Send message",
   "sending": "Sending…",
   "success": "Thank you! Your message has been sent.",
-  "error": "Could not send your message. Your text has been kept. Please try again later.",
+  "INTERNAL_ERROR": "Could not send your message. Your text has been kept. Please try again later.",
+  "INVALID_REQUEST": "Check your name, email address and message, then try again. Your text has been kept.",
+  "VERIFICATION_FAILED": "Verification failed. Your text has been kept. Please try again.",
+  "VERIFICATION_UNAVAILABLE": "Verification is temporarily unavailable. Your text has been kept. Please try again later.",
   "uncertain": "Could not confirm whether your message was sent. Your text has been kept. Please wait before trying again.",
-  "unavailable": "The form is temporarily unavailable. Please try again later.",
   "verification": "Complete the verification before sending your message.",
-  "verificationError": "Could not complete verification. Close and reopen the form to try again.",
-  "rateLimit": "Too many attempts. Please wait a few minutes and try again.",
-  "invalid": "Check your name, email address and message, then try again.",
   "whitespace": "Enter some text — spaces alone are not enough."
 }

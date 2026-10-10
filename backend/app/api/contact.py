@@ -14,7 +14,9 @@ async def contact(
     await turnstile.verify_turnstile(
         token=payload.turnstileToken,
         secret=env.TURNSTILE_SECRET,
+        remote_ip=request.headers.get("CF-Connecting-IP"),
         expected_action="contact",
+        expected_hostname=env.TURNSTILE_HOSTNAME,
     )
 
     return ContactResponse(success=True)
