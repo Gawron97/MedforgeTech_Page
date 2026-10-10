@@ -30,6 +30,9 @@
 },
 
 "previews": {
+  "vars": {
+    "TURNSTILE_HOSTNAME": "medforge.tech"
+  },
   "observability": {
     "enabled": true,
     "logs": {
