@@ -4,8 +4,8 @@
   "success": "Thank you! Your message has been sent.",
   "INTERNAL_ERROR": "Could not send your message. Your text has been kept. Please try again later.",
   "INVALID_REQUEST": "Check your name, email address and message, then try again. Your text has been kept.",
-  "VERIFICATION_FAILED": "Verification failed. Your text has been kept. Please try again.",
-  "VERIFICATION_UNAVAILABLE": "Verification is temporarily unavailable. Your text has been kept. Please try again later.",
+  "CAPTCHA_VERIFICATION_FAILED": "Verification failed. Your text has been kept. Please try again.",
+  "CAPTCHA_VERIFICATION_UNAVAILABLE": "Verification is temporarily unavailable. Your text has been kept. Please try again later.",
   "uncertain": "Could not confirm whether your message was sent. Your text has been kept. Please wait before trying again.",
   "verification": "Complete the verification before sending your message.",
   "whitespace": "Enter some text — spaces alone are not enough."

@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse
 
 from application import app
 
+from errors.codes import ErrorCode
 from errors.exceptions import AppError, InvalidRequestError
 
 logger = logging.getLogger(__name__)
@@ -14,15 +15,22 @@ logger = logging.getLogger(__name__)
 async def app_error_handler(request: Request, exc: AppError):
 
     if exc.status_code >= 500:
-        logger.error(f"{type(exc).__name__} path={request.url.path} code={exc.code} message={exc.message}, exc_info={type(exc), exc, exc.__traceback__}")
+        logger.error(
+            "%s path=%s code=%s message=%s",
+            type(exc).__name__, request.url.path, exc.code.value, exc.message,
+            exc_info=(type(exc), exc, exc.__traceback__),
+        )
     else:
-        logger.warning(f"{type(exc).__name__} path={request.url.path} code={exc.code} message={exc.message}")
+        logger.warning(
+            "%s path=%s code=%s message=%s",
+            type(exc).__name__, request.url.path, exc.code.value, exc.message,
+        )
 
     return JSONResponse(
         status_code=exc.status_code,
         content={
             "success": False,
-            "code": exc.code,
+            "code": exc.code.value,
         }
     )
 
@@ -30,18 +38,22 @@ async def app_error_handler(request: Request, exc: AppError):
 async def request_validation_error_handler(request: Request, exc: RequestValidationError):
     return await app_error_handler(
         request,
-        InvalidRequestError("Request validation failed"),
+        InvalidRequestError(ErrorCode.INVALID_REQUEST, "Request validation failed"),
     )
 
 @app.exception_handler(Exception)
 async def unexpected_error_handler(request: Request, exc: Exception):
 
-    logger.exception(f"Unexpected error path={request.url.path}")
+    logger.exception(
+        "Unexpected error path=%s",
+        request.url.path,
+        exc_info=(type(exc), exc, exc.__traceback__),
+    )
 
     return JSONResponse(
         status_code=500,
         content={
             "success": False,
-            "code": "INTERNAL_ERROR",
+            "code": ErrorCode.INTERNAL_ERROR.value,
         }
     )

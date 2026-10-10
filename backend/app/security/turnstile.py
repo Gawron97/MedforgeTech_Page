@@ -1,22 +1,26 @@
 import json
 from workers import fetch
 
+from errors.codes import ErrorCode
 from errors.exceptions import (
-    TurnstileConfigurationError,
-    TurnstileRejectedError,
-    TurnstileUnavailableError,
+    AppError,
+    ForbiddenError,
+    InternalError,
+    ServiceUnavailableError,
 )
 
 TURNSTILE_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify"
 
-ERROR_TYPES = {
-    "invalid-input-secret": TurnstileConfigurationError,
-    "bad-request": TurnstileConfigurationError,
+ERROR_MAPPING: dict[str, tuple[type[AppError], ErrorCode]] = {
+    "missing-input-secret": (InternalError, ErrorCode.INTERNAL_ERROR),
+    "invalid-input-secret": (InternalError, ErrorCode.INTERNAL_ERROR),
+    "bad-request": (InternalError, ErrorCode.INTERNAL_ERROR),
 
-    "invalid-input-response": TurnstileRejectedError,
-    "timeout-or-duplicate": TurnstileRejectedError,
+    "missing-input-response": (ForbiddenError, ErrorCode.CAPTCHA_VERIFICATION_FAILED),
+    "invalid-input-response": (ForbiddenError, ErrorCode.CAPTCHA_VERIFICATION_FAILED),
+    "timeout-or-duplicate": (ForbiddenError, ErrorCode.CAPTCHA_VERIFICATION_FAILED),
 
-    "internal-error": TurnstileUnavailableError
+    "internal-error": (ServiceUnavailableError, ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE),
 }
 
 async def verify_turnstile(
@@ -38,10 +42,10 @@ def _validate_input(
         secret: str,
 ) -> None:
     if not token:
-        raise TurnstileRejectedError("Turnstile token is missing")
+        raise ForbiddenError(ErrorCode.CAPTCHA_VERIFICATION_FAILED, "Turnstile token is missing")
 
     if not secret:
-        raise TurnstileConfigurationError("Turnstile secret is not configured")
+        raise InternalError(ErrorCode.INTERNAL_ERROR, "Turnstile secret is not configured")
 
 async def _call_turnstile(
         token: str,
@@ -65,23 +69,32 @@ async def _call_turnstile(
             body=json.dumps(data)
         )
     except Exception as exc:
-        raise TurnstileUnavailableError("Could not connect to Turnstile service") from exc
+        raise ServiceUnavailableError(
+            ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
+            "Could not connect to Turnstile service",
+        ) from exc
 
     _validate_http_status(response.status)
 
     try:
         return json.loads(await response.text())
     except Exception as exc:
-        raise TurnstileUnavailableError("Could not parse Turnstile response") from exc
+        raise ServiceUnavailableError(
+            ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
+            "Could not parse Turnstile response",
+        ) from exc
 
 def _validate_http_status(status: int) -> None:
     if 200 <= status < 300:
         return
 
-    if status == 429 or status >=500:
-        raise TurnstileUnavailableError(f"Turnstile service returned status {status}")
+    if status in (408, 429) or status >=500:
+        raise ServiceUnavailableError(
+            ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
+            f"Turnstile service returned status {status}",
+        )
 
-    raise TurnstileConfigurationError(f"Turnstile service returned status {status}")
+    raise InternalError(ErrorCode.INTERNAL_ERROR, f"Turnstile service returned status {status}")
 
 def _validate_result(
         result: dict,
@@ -93,16 +106,26 @@ def _validate_result(
         _raise_for_error_codes(result.get("error-codes", []))
 
     if expected_action is not None and result.get("action") != expected_action:
-        raise TurnstileRejectedError(f"Turnstile action mismatch: expected {expected_action}, got {result.get('action')}")
+        raise ForbiddenError(
+            ErrorCode.CAPTCHA_VERIFICATION_FAILED,
+            f"Turnstile action mismatch: expected {expected_action}, got {result.get('action')}",
+        )
 
     if expected_hostname is not None and result.get("hostname") != expected_hostname:
-        raise TurnstileRejectedError(f"Turnstile hostname mismatch: expected {expected_hostname}, got {result.get('hostname')}")
+        raise ForbiddenError(
+            ErrorCode.CAPTCHA_VERIFICATION_FAILED,
+            f"Turnstile hostname mismatch: expected {expected_hostname}, got {result.get('hostname')}",
+        )
 
 def _raise_for_error_codes(error_codes: list[str]) -> None:
     for error_code in error_codes:
-        error_type = ERROR_TYPES.get(error_code)
+        error = ERROR_MAPPING.get(error_code)
 
-        if error_type is not None:
-            raise error_type(f"Turnstile error: {error_code}")
+        if error is not None:
+            error_type, code = error
+            raise error_type(code, f"Turnstile error: {error_code}")
 
-    raise TurnstileUnavailableError(f"Turnstile returned unknown error codes: {error_codes}")
+    raise ServiceUnavailableError(
+        ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
+        f"Turnstile returned unknown error codes: {error_codes}",
+    )

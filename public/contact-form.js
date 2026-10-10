@@ -70,7 +70,7 @@ function renderVerification() {
       "error-callback": verificationFailed,
     });
   } catch {
-    showStatus("VERIFICATION_UNAVAILABLE", "error");
+    showStatus("CAPTCHA_VERIFICATION_UNAVAILABLE", "error");
   }
   loading = false;
 }
@@ -90,13 +90,13 @@ function verificationExpired() {
 function verificationFailed() {
   token = "";
   button.disabled = true;
-  if (!sending) showStatus("VERIFICATION_FAILED", "verification");
+  if (!sending) showStatus("CAPTCHA_VERIFICATION_FAILED", "verification");
 }
 
 function verificationScriptFailed(event) {
   loading = false;
   event.currentTarget.remove();
-  showStatus("VERIFICATION_UNAVAILABLE", "error");
+  showStatus("CAPTCHA_VERIFICATION_UNAVAILABLE", "error");
 }
 
 async function submitContactForm(event) {

@@ -4,8 +4,8 @@
   "success": "Dziękujemy! Twoja wiadomość została wysłana.",
   "INTERNAL_ERROR": "Nie udało się wysłać wiadomości. Twoja treść została zachowana. Spróbuj ponownie później.",
   "INVALID_REQUEST": "Sprawdź imię, adres e-mail i wiadomość, a następnie spróbuj ponownie. Twoja treść została zachowana.",
-  "VERIFICATION_FAILED": "Weryfikacja nie powiodła się. Twoja treść została zachowana. Spróbuj ponownie.",
-  "VERIFICATION_UNAVAILABLE": "Weryfikacja jest chwilowo niedostępna. Twoja treść została zachowana. Spróbuj ponownie później.",
+  "CAPTCHA_VERIFICATION_FAILED": "Weryfikacja nie powiodła się. Twoja treść została zachowana. Spróbuj ponownie.",
+  "CAPTCHA_VERIFICATION_UNAVAILABLE": "Weryfikacja jest chwilowo niedostępna. Twoja treść została zachowana. Spróbuj ponownie później.",
   "uncertain": "Nie udało się potwierdzić wysłania wiadomości. Twoja treść została zachowana. Odczekaj przed ponowną próbą.",
   "verification": "Dokończ weryfikację przed wysłaniem wiadomości.",
   "whitespace": "Wpisz treść — same spacje nie wystarczą."
