@@ -7,7 +7,7 @@
   "vars": {
     "TURNSTILE_HOSTNAME": "medforge.tech",
     "MAIL_FROM": "Medforge <formularz@medforge.tech>",
-    "MAIL_TO": "projekt@medforgetech.pl"
+    "MAIL_TO": "project@medforgetech.pl"
   },
 
   "assets": {
@@ -35,7 +35,7 @@
   "vars": {
     "TURNSTILE_HOSTNAME": "dev-medforgetech-page.jakubgawron97.workers.dev",
     "MAIL_FROM": "Medforge <formularz@medforge.tech>",
-    "MAIL_TO": "projekt@medforgetech.pl"
+    "MAIL_TO": "project@medforgetech.pl"
   },
   "observability": {
     "enabled": true,
