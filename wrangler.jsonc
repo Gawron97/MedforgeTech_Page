@@ -7,7 +7,7 @@
   "vars": {
     "TURNSTILE_HOSTNAME": "medforge.tech",
     "MAIL_FROM": "Medforge <formularz@medforge.tech>",
-    "MAIL_TO": "projekt@medforge.pl"
+    "MAIL_TO": "projekt@medforgetech.pl"
   },
 
   "assets": {
@@ -35,7 +35,7 @@
   "vars": {
     "TURNSTILE_HOSTNAME": "medforge.tech",
     "MAIL_FROM": "Medforge <formularz@medforge.tech>",
-    "MAIL_TO": "projekt@medforge.pl"
+    "MAIL_TO": "projekt@medforgetech.pl"
   },
   "observability": {
     "enabled": true,
