@@ -5,7 +5,9 @@
   "main": "backend/app/main.py",
 
   "vars": {
-    "TURNSTILE_HOSTNAME": "medforge.tech"
+    "TURNSTILE_HOSTNAME": "medforge.tech",
+    "MAIL_FROM": "Medforge <formularz@medforge.tech>",
+    "MAIL_TO": "projekt@medforge.pl"
   },
 
   "assets": {
@@ -31,7 +33,9 @@
 
 "previews": {
   "vars": {
-    "TURNSTILE_HOSTNAME": "medforge.tech"
+    "TURNSTILE_HOSTNAME": "medforge.tech",
+    "MAIL_FROM": "Medforge <formularz@medforge.tech>",
+    "MAIL_TO": "projekt@medforge.pl"
   },
   "observability": {
     "enabled": true,

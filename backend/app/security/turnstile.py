@@ -23,109 +23,114 @@ ERROR_MAPPING: dict[str, tuple[type[AppError], ErrorCode]] = {
     "internal-error": (ServiceUnavailableError, ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE),
 }
 
-async def verify_turnstile(
-        token: str, 
-        secret: str, 
-        remote_ip: str | None = None, 
-        expected_action: str | None = None,
-        expected_hostname: str | None = None
-) -> None:
+class TurnstileVerifier:
+    def __init__(self, secret: str, expected_hostname: str | None = None):
+        self._secret = secret
+        self._expected_hostname = expected_hostname
 
-    _validate_input(token, secret)
+    async def verify(
+            self,
+            token: str, 
+            remote_ip: str | None = None, 
+            expected_action: str | None = None
+    ) -> None:
 
-    result = await _call_turnstile(token, secret, remote_ip)
+        self._validate_input(token)
 
-    _validate_result(result, expected_action, expected_hostname)
+        result = await self._call_turnstile(token, remote_ip)
 
-def _validate_input(
-        token: str,
-        secret: str,
-) -> None:
-    if not token:
-        raise ForbiddenError(ErrorCode.CAPTCHA_VERIFICATION_FAILED, "Turnstile token is missing")
+        self._validate_result(result, expected_action, self._expected_hostname)
 
-    if not secret:
-        raise InternalError(ErrorCode.INTERNAL_ERROR, "Turnstile secret is not configured")
+    def _validate_input(
+            self,
+            token: str
+    ) -> None:
+        if not token:
+            raise ForbiddenError(ErrorCode.CAPTCHA_VERIFICATION_FAILED, "Turnstile token is missing")
 
-async def _call_turnstile(
-        token: str,
-        secret: str,
-        remote_ip: str | None
-) -> dict:
+        if not self._secret:
+            raise InternalError(ErrorCode.INTERNAL_ERROR, "Turnstile secret is not configured")
 
-    data = {
-        "secret": secret,
-        "response": token,
-    }
+    async def _call_turnstile(
+            self,
+            token: str,
+            remote_ip: str | None
+    ) -> dict:
 
-    if remote_ip:
-        data["remoteip"] = remote_ip
+        data = {
+            "secret": self._secret,
+            "response": token,
+        }
 
-    try:
-        response = await fetch(
-            TURNSTILE_VERIFY_URL,
-            method="POST",
-            headers={"Content-Type": "application/json"},
-            body=json.dumps(data)
-        )
-    except Exception as exc:
+        if remote_ip:
+            data["remoteip"] = remote_ip
+
+        try:
+            response = await fetch(
+                TURNSTILE_VERIFY_URL,
+                method="POST",
+                headers={"Content-Type": "application/json"},
+                body=json.dumps(data)
+            )
+        except Exception as exc:
+            raise ServiceUnavailableError(
+                ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
+                "Could not connect to Turnstile service",
+            ) from exc
+
+        self._validate_http_status(response.status)
+
+        try:
+            return json.loads(await response.text())
+        except Exception as exc:
+            raise ServiceUnavailableError(
+                ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
+                "Could not parse Turnstile response",
+            ) from exc
+
+    def _validate_http_status(self, status: int) -> None:
+        if 200 <= status < 300:
+            return
+
+        if status in (408, 429) or status >=500:
+            raise ServiceUnavailableError(
+                ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
+                f"Turnstile service returned status {status}",
+            )
+
+        raise InternalError(ErrorCode.INTERNAL_ERROR, f"Turnstile service returned status {status}")
+
+    def _validate_result(
+            self,
+            result: dict,
+            expected_action: str | None,
+            expected_hostname: str | None
+    ) -> None:
+
+        if result.get("success") is not True:
+            self._raise_for_error_codes(result.get("error-codes", []))
+
+        if expected_action is not None and result.get("action") != expected_action:
+            raise ForbiddenError(
+                ErrorCode.CAPTCHA_VERIFICATION_FAILED,
+                f"Turnstile action mismatch: expected {expected_action}, got {result.get('action')}",
+            )
+
+        if expected_hostname is not None and result.get("hostname") != expected_hostname:
+            raise ForbiddenError(
+                ErrorCode.CAPTCHA_VERIFICATION_FAILED,
+                f"Turnstile hostname mismatch: expected {expected_hostname}, got {result.get('hostname')}",
+            )
+
+    def _raise_for_error_codes(self, error_codes: list[str]) -> None:
+        for error_code in error_codes:
+            error = ERROR_MAPPING.get(error_code)
+
+            if error is not None:
+                error_type, code = error
+                raise error_type(code, f"Turnstile error: {error_code}")
+
         raise ServiceUnavailableError(
             ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
-            "Could not connect to Turnstile service",
-        ) from exc
-
-    _validate_http_status(response.status)
-
-    try:
-        return json.loads(await response.text())
-    except Exception as exc:
-        raise ServiceUnavailableError(
-            ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
-            "Could not parse Turnstile response",
-        ) from exc
-
-def _validate_http_status(status: int) -> None:
-    if 200 <= status < 300:
-        return
-
-    if status in (408, 429) or status >=500:
-        raise ServiceUnavailableError(
-            ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
-            f"Turnstile service returned status {status}",
+            f"Turnstile returned unknown error codes: {error_codes}",
         )
-
-    raise InternalError(ErrorCode.INTERNAL_ERROR, f"Turnstile service returned status {status}")
-
-def _validate_result(
-        result: dict,
-        expected_action: str | None,
-        expected_hostname: str | None
-) -> None:
-
-    if result.get("success") is not True:
-        _raise_for_error_codes(result.get("error-codes", []))
-
-    if expected_action is not None and result.get("action") != expected_action:
-        raise ForbiddenError(
-            ErrorCode.CAPTCHA_VERIFICATION_FAILED,
-            f"Turnstile action mismatch: expected {expected_action}, got {result.get('action')}",
-        )
-
-    if expected_hostname is not None and result.get("hostname") != expected_hostname:
-        raise ForbiddenError(
-            ErrorCode.CAPTCHA_VERIFICATION_FAILED,
-            f"Turnstile hostname mismatch: expected {expected_hostname}, got {result.get('hostname')}",
-        )
-
-def _raise_for_error_codes(error_codes: list[str]) -> None:
-    for error_code in error_codes:
-        error = ERROR_MAPPING.get(error_code)
-
-        if error is not None:
-            error_type, code = error
-            raise error_type(code, f"Turnstile error: {error_code}")
-
-    raise ServiceUnavailableError(
-        ErrorCode.CAPTCHA_VERIFICATION_UNAVAILABLE,
-        f"Turnstile returned unknown error codes: {error_codes}",
-    )
