@@ -20,10 +20,9 @@
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="preload" href="fonts/open-sans-v18-latin-ext_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles-pl.css?v=20261017-7">
+    <link rel="stylesheet" href="layout.css?v=20261017-12">
     <script src="contact-config.js" defer></script>
     <script src="script.js" defer></script>
-    <script src="projects.js" defer></script>
     <script src="capabilities.js" defer></script>
     <script src="contact-form.js" type="module"></script>
   </head>
@@ -52,9 +51,8 @@
         </a>
         <nav class="desktop-nav" aria-label="Nawigacja główna">
           <a href="#approach">O nas</a>
-          <a href="#capabilities">Kompetencje</a>
           <a href="#process">Jak pracujemy</a>
-          <a href="#projects">Projekty</a>
+          <a href="#capabilities">Kompetencje</a>
           <a href="#audiences">Dla kogo</a>
           <a href="#contact">Kontakt</a>
         </nav>
@@ -64,7 +62,7 @@
         <details class="mobile-menu">
           <summary aria-label="Otwórz menu"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></summary>
           <nav aria-label="Nawigacja mobilna">
-            <a href="#approach">O nas</a><a href="#capabilities">Kompetencje</a><a href="#process">Jak pracujemy</a><a href="#projects">Projekty</a><a href="#audiences">Dla kogo</a><a href="#contact">Kontakt</a>
+            <a href="#approach">O nas</a><a href="#process">Jak pracujemy</a><a href="#capabilities">Kompetencje</a><a href="#audiences">Dla kogo</a><a href="#contact">Kontakt</a>
             <div class="language-switch" aria-label="Wybór języka"><a href="index.html" lang="pl" aria-current="page">PL</a><span aria-hidden="true">/</span><a href="en.html" lang="en">EN</a></div>
           </nav>
         </details>
@@ -94,7 +92,7 @@
           <div class="approach-intro">
             <p class="eyebrow">Nasze podejście</p>
             <p>Łączymy wiedzę naukową, inżynierię i sztuczną inteligencję, aby tworzyć, testować i wdrażać innowacyjne technologie medyczne.</p>
-            <div class="media-frame"><img src="images/approach-engineering.webp" alt="Wizualizacja precyzyjnego podzespołu optycznego na stanowisku inżynierskim" width="1156" height="252" loading="lazy" decoding="async"></div>
+            <div class="media-frame"><img src="images/approach-engineering-hq.webp" alt="Wizualizacja precyzyjnego podzespołu optycznego na stanowisku inżynierskim" width="2172" height="724" loading="lazy" decoding="async"></div>
           </div>
           <div class="approach-copy">
             <h2 id="approach-title">Jeden zespół.<br>Cały proces rozwoju.</h2>
@@ -119,31 +117,31 @@
               <li class="process-card">
                 <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-discover"/></svg><span class="step-number">01</span></div>
                 <h3>Rozpoznanie potrzeby</h3>
-                <div class="media-frame"><img src="images/process-discovery.webp" alt="Wizualizacja rozmowy zespołu o wymaganiach projektu" width="316" height="208" loading="lazy" decoding="async"></div>
+                <div class="media-frame"><img src="images/process-discovery-hq.webp" alt="Wizualizacja rozmowy zespołu o wymaganiach projektu" width="1536" height="1024" loading="lazy" decoding="async"></div>
                 <p>Wspólnie definiujemy cel, wymagania i kontekst kliniczny.</p>
               </li>
               <li class="process-card">
                 <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-design"/></svg><span class="step-number">02</span></div>
                 <h3>Projektowanie</h3>
-                <div class="media-frame"><img src="images/process-design.webp" alt="Wizualizacja cyfrowego modelu konstrukcji na ekranie" width="312" height="208" loading="lazy" decoding="async"></div>
+                <div class="media-frame"><img src="images/process-design-hq.webp" alt="Wizualizacja cyfrowego modelu konstrukcji na ekranie" width="1536" height="1024" loading="lazy" decoding="async"></div>
                 <p>Opracowujemy koncepcję, model, elektronikę oraz algorytmy AI.</p>
               </li>
               <li class="process-card">
                 <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-build"/></svg><span class="step-number">03</span></div>
                 <h3>Budowa</h3>
-                <div class="media-frame"><img src="images/process-build.webp" alt="Wizualizacja montażu podzespołów elektronicznych" width="304" height="208" loading="lazy" decoding="async"></div>
+                <div class="media-frame"><img src="images/process-build-hq.webp" alt="Wizualizacja montażu podzespołów elektronicznych" width="1536" height="1024" loading="lazy" decoding="async"></div>
                 <p>Wykonujemy prototyp. Integrujemy komponenty, oprogramowanie i algorytmy.</p>
               </li>
               <li class="process-card">
                 <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-validate"/></svg><span class="step-number">04</span></div>
                 <h3>Walidacja</h3>
-                <div class="media-frame"><img src="images/process-validate.webp" alt="Wizualizacja testów prototypu na stanowisku laboratoryjnym" width="280" height="208" loading="lazy" decoding="async"></div>
+                <div class="media-frame"><img src="images/process-validate-hq.webp" alt="Wizualizacja testów prototypu na stanowisku laboratoryjnym" width="1536" height="1024" loading="lazy" decoding="async"></div>
                 <p>Testujemy, oceniamy wyniki i iterujemy rozwiązanie.</p>
               </li>
               <li class="process-card">
                 <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-translate"/></svg><span class="step-number">05</span></div>
                 <h3>Wdrożenie</h3>
-                <div class="media-frame"><img src="images/process-translate.webp" alt="Wizualizacja przygotowania rozwiązania w laboratorium" width="304" height="208" loading="lazy" decoding="async"></div>
+                <div class="media-frame"><img src="images/process-translate-hq.webp" alt="Wizualizacja przygotowania rozwiązania w laboratorium" width="1517" height="1037" loading="lazy" decoding="async"></div>
                 <p>Przygotowujemy rozwiązanie do wdrożenia, skalowania i komercjalizacji.</p>
               </li>
             </ol>
@@ -168,52 +166,32 @@
             <article class="capability-card">
               <span class="capability-number" aria-hidden="true">01</span>
               <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-discover"/></svg><h3>Prototypowanie i druk 3D</h3></div>
-              <div class="media-frame"><img src="images/capabilities-3d-printing.webp" alt="Wizualizacja białego prototypu o złożonej geometrii do druku 3D" width="340" height="308" loading="lazy" decoding="async"></div>
+              <div class="media-frame"><img src="images/capabilities-3d-printing-hq.webp" alt="Wizualizacja białego prototypu o złożonej geometrii do druku 3D" width="1538" height="1022" loading="lazy" decoding="async"></div>
               <div class="capability-body"><p>Od koncepcji do funkcjonalnego prototypu.</p></div>
             </article>
             <article class="capability-card">
               <span class="capability-number" aria-hidden="true">02</span>
               <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-electronics"/></svg><h3>Elektronika i systemy wbudowane</h3></div>
-              <div class="media-frame"><img src="images/capabilities-electronics.webp" alt="Wizualizacja układu scalonego na płytce drukowanej" width="328" height="308" loading="lazy" decoding="async"></div>
+              <div class="media-frame"><img src="images/capabilities-electronics-hq.webp" alt="Wizualizacja układu scalonego na płytce drukowanej" width="1536" height="1024" loading="lazy" decoding="async"></div>
               <div class="capability-body"><p>Projektowanie i integracja układów elektronicznych.</p></div>
             </article>
             <article class="capability-card">
               <span class="capability-number" aria-hidden="true">03</span>
               <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-ai"/></svg><h3>AI i analiza danych</h3></div>
-              <div class="media-frame"><img src="images/capabilities-ai-analysis.webp" alt="Wizualizacja analizy rozgałęzionej struktury naczyniowej" width="328" height="308" loading="lazy" decoding="async"></div>
+              <div class="media-frame"><img src="images/capabilities-ai-analysis-hq.webp" alt="Wizualizacja analizy rozgałęzionej struktury naczyniowej" width="1536" height="1024" loading="lazy" decoding="async"></div>
               <div class="capability-body"><p>Uczenie maszynowe, analiza obrazów i sygnałów.</p></div>
             </article>
             <article class="capability-card">
               <span class="capability-number" aria-hidden="true">04</span>
               <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-research"/></svg><h3>Badania i rozwój</h3></div>
-              <div class="media-frame"><img src="images/capabilities-research-validation.webp" alt="Wizualizacja stanowiska do badań i walidacji prototypów" width="328" height="308" loading="lazy" decoding="async"></div>
+              <div class="media-frame"><img src="images/capabilities-research-validation-hq.webp" alt="Wizualizacja stanowiska do badań i walidacji prototypów" width="1536" height="1024" loading="lazy" decoding="async"></div>
               <div class="capability-body"><p>Testy, walidacja i optymalizacja.</p></div>
             </article>
             <article class="capability-card">
               <span class="capability-number" aria-hidden="true">05</span>
               <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-integration"/></svg><h3>Dobór i integracja komponentów</h3></div>
-              <div class="media-frame"><img src="images/capabilities-component-integration.webp" alt="Wizualizacja zestawu komponentów mechanicznych i elektronicznych" width="332" height="308" loading="lazy" decoding="async"></div>
+              <div class="media-frame"><img src="images/capabilities-component-integration-hq.webp" alt="Wizualizacja zestawu komponentów mechanicznych i elektronicznych" width="1536" height="1024" loading="lazy" decoding="async"></div>
               <div class="capability-body"><p>Komponenty mechaniczne, elektroniczne, specjalistyczne, infrastruktura.</p></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="projects-section section-pad" id="projects" aria-labelledby="projects-title">
-        <div class="section-shell">
-          <div class="section-heading"><p class="eyebrow">Projekty</p><h2 id="projects-title">Od badań do realnych rozwiązań.</h2><p class="visualization-note">Wizualizacje koncepcyjne projektów.</p></div>
-          <div class="projects-grid">
-            <article class="project-card">
-              <div class="media-frame"><img src="images/projects-ultraclear-hq.webp" alt="Wizualizacja koncepcyjna przenośnego urządzenia do obrazowania ULTRACLEAR" width="1536" height="1024" loading="lazy" decoding="async"></div>
-              <div class="project-body"><h3>ULTRACLEAR</h3><p>Przenośny SPECT/US<br>obrazowanie hybrydowe</p><button class="text-link" type="button" data-project="ultraclear" aria-haspopup="dialog">Zobacz projekt <span aria-hidden="true">→</span></button></div>
-            </article>
-            <article class="project-card">
-              <div class="media-frame"><img src="images/projects-vibronav-hq.webp" alt="Wizualizacja koncepcyjna urządzenia VIBRONAV z przebiegiem sygnału na ekranie" width="1536" height="1024" loading="lazy" decoding="async"></div>
-              <div class="project-body"><h3>VIBRONAV</h3><p>Wibroakustyczne prowadzenie dostępu naczyniowego</p><button class="text-link" type="button" data-project="vibronav" aria-haspopup="dialog">Zobacz projekt <span aria-hidden="true">→</span></button></div>
-            </article>
-            <article class="project-card">
-              <div class="media-frame"><img src="images/projects-cadflow-hq.webp" alt="Wizualizacja koncepcyjna sieci naczyń do analizy obrazów CADFLOW" width="1536" height="1024" loading="lazy" decoding="async"></div>
-              <div class="project-body"><h3>CADFLOW</h3><p>AI w analizie<br>koronarografii</p><button class="text-link" type="button" data-project="cadflow" aria-haspopup="dialog">Zobacz projekt <span aria-hidden="true">→</span></button></div>
             </article>
           </div>
         </div>
@@ -223,9 +201,9 @@
         <div class="section-shell">
           <div class="section-heading"><p class="eyebrow">Dla kogo</p><h2 id="audiences-title">Technologia, która odpowiada na realną potrzebę.</h2></div>
           <div class="audiences-grid">
-            <article class="audience-card"><div class="media-frame"><img src="images/audiences-medical.webp" alt="Wizualizacja zespołu medycznego przy pracy" width="488" height="200" loading="lazy" decoding="async"></div><h3>Sektor medyczny</h3><p>Prototypy, urządzenia i rozwiązania wspierające rozwój technologii medycznych.</p></article>
-            <article class="audience-card"><div class="media-frame"><img src="images/audiences-industrial.webp" alt="Wizualizacja precyzyjnych komponentów dla przemysłu" width="512" height="200" loading="lazy" decoding="async"></div><h3>Firmy technologiczne i przemysł</h3><p>Wsparcie konstrukcyjne, elektroniczne i programistyczne.</p></article>
-            <article class="audience-card"><div class="media-frame"><img src="images/audiences-individual.webp" alt="Wizualizacja modelu o organicznej geometrii do druku 3D" width="496" height="200" loading="lazy" decoding="async"></div><h3>Klienci indywidualni</h3><p>Druk 3D i prototypowanie pomysłów wymagających technicznego przygotowania.</p></article>
+            <article class="audience-card"><div class="media-frame"><img src="images/audiences-medical-hq.webp" alt="Wizualizacja zespołu medycznego przy pracy" width="1959" height="803" loading="lazy" decoding="async"></div><h3>Sektor medyczny</h3><p>Prototypy, urządzenia i rozwiązania wspierające rozwój technologii medycznych.</p></article>
+            <article class="audience-card"><div class="media-frame"><img src="images/audiences-industrial-hq.webp" alt="Wizualizacja precyzyjnych komponentów dla przemysłu" width="2006" height="784" loading="lazy" decoding="async"></div><h3>Firmy technologiczne i przemysł</h3><p>Wsparcie konstrukcyjne, elektroniczne i programistyczne.</p></article>
+            <article class="audience-card"><div class="media-frame"><img src="images/audiences-individual-hq.webp" alt="Wizualizacja modelu o organicznej geometrii do druku 3D" width="1975" height="796" loading="lazy" decoding="async"></div><h3>Klienci indywidualni</h3><p>Druk 3D i prototypowanie pomysłów wymagających technicznego przygotowania.</p></article>
           </div>
         </div>
       </section>
@@ -256,18 +234,27 @@
       </section>
     </main>
 
-    <dialog class="project-modal" id="project-ultraclear" aria-labelledby="ultraclear-title"><button class="modal-close" type="button" aria-label="Zamknij opis projektu">×</button><h2 id="ultraclear-title">ULTRACLEAR</h2><div class="media-frame project-modal-visual"><img src="images/projects-ultraclear-hq.webp" alt="Wizualizacja koncepcyjna projektu ULTRACLEAR" width="1536" height="1024" loading="lazy" decoding="async"></div><p>Przenośny SPECT/US — obrazowanie hybrydowe.</p><a class="button button-primary" href="#contact">Porozmawiajmy o projekcie <span aria-hidden="true">→</span></a></dialog>
-    <dialog class="project-modal" id="project-vibronav" aria-labelledby="vibronav-title"><button class="modal-close" type="button" aria-label="Zamknij opis projektu">×</button><h2 id="vibronav-title">VIBRONAV</h2><div class="media-frame project-modal-visual"><img src="images/projects-vibronav-hq.webp" alt="Wizualizacja koncepcyjna projektu VIBRONAV" width="1536" height="1024" loading="lazy" decoding="async"></div><p>Wibroakustyczne prowadzenie dostępu naczyniowego.</p><a class="button button-primary" href="#contact">Porozmawiajmy o projekcie <span aria-hidden="true">→</span></a></dialog>
-    <dialog class="project-modal" id="project-cadflow" aria-labelledby="cadflow-title"><button class="modal-close" type="button" aria-label="Zamknij opis projektu">×</button><h2 id="cadflow-title">CADFLOW</h2><div class="media-frame project-modal-visual"><img src="images/projects-cadflow-hq.webp" alt="Wizualizacja koncepcyjna projektu CADFLOW" width="1536" height="1024" loading="lazy" decoding="async"></div><p>AI w analizie koronarografii.</p><a class="button button-primary" href="#contact">Porozmawiajmy o projekcie <span aria-hidden="true">→</span></a></dialog>
 
     <footer class="site-footer">
       <div class="section-shell">
         <div class="footer-main">
-          <a class="brand" href="#top" aria-label="MEDFORGE — do góry"><span class="brand-crop"><img src="images/logo.jpeg" alt="MEDFORGE — Engineering Medical Innovation" width="1600" height="533" loading="lazy"></span></a>
-          <nav aria-label="Nawigacja w stopce"><a href="#approach">O nas</a><a href="#capabilities">Kompetencje</a><a href="#process">Jak pracujemy</a><a href="#projects">Projekty</a><a href="#contact">Kontakt</a></nav>
-          <div class="language-switch" aria-label="Wybór języka"><a href="index.html" lang="pl" aria-current="page">PL</a><span aria-hidden="true">/</span><a href="en.html" lang="en">EN</a></div>
+          <div class="footer-identity">
+            <a class="brand" href="#top" aria-label="MEDFORGE — do góry"><span class="brand-crop"><img src="images/logo.jpeg" alt="MEDFORGE — Engineering Medical Innovation" width="1600" height="533" loading="lazy"></span></a>
+            <p>Projektujemy i rozwijamy technologie dla medycyny i przemysłu.</p>
+          </div>
+          <div class="footer-perspective">
+            <p class="footer-kicker">Łączymy perspektywy</p>
+            <p class="footer-statement">Nauka. Inżynieria.<br><span>Realne zastosowanie.</span></p>
+            <a class="footer-contact" href="#contact">Porozmawiajmy <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <div class="footer-bottom"><span>© <span id="current-year">2026</span> MEDFORGE</span><a href="#top">Do góry ↑</a></div>
+        <div class="footer-bottom">
+          <span>© <span id="current-year">2026</span> MEDFORGE</span>
+          <div class="footer-utilities">
+            <nav class="language-switch" aria-label="Wybór języka"><a href="index.html" lang="pl" aria-current="page">PL</a><a href="en.html" lang="en">EN</a></nav>
+            <a class="footer-top" href="#top">Do góry <span aria-hidden="true">↑</span></a>
+          </div>
+        </div>
       </div>
     </footer>
   </body>

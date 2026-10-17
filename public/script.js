@@ -51,7 +51,7 @@ window.addEventListener('scrollend', updateActiveSection);
 window.addEventListener('resize', updateActiveSection);
 
 // Retain existing bookmarks from both language versions.
-const oldAnchors = { uslugi: 'capabilities', services: 'capabilities', proces: 'process', obszary: 'audiences', industries: 'audiences', portfolio: 'projects', kontakt: 'contact' };
+const oldAnchors = { uslugi: 'capabilities', services: 'capabilities', proces: 'process', obszary: 'audiences', industries: 'audiences', kontakt: 'contact' };
 const oldTarget = oldAnchors[window.location.hash.slice(1)];
 if (oldTarget) {
   history.replaceState(null, '', `#${oldTarget}`);
