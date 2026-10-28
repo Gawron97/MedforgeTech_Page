@@ -19,8 +19,8 @@
     <meta property="og:image:alt" content="Concept visualisation of a MEDFORGE medical engineering laboratory">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="preload" href="fonts/open-sans-v18-latin-ext_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="layout.css?v=20261017-12">
+    <link rel="stylesheet" href="styles.css?v=20261028-2">
+    <link rel="stylesheet" href="layout.css?v=20261028-2">
     <script src="contact-config.js" defer></script>
     <script src="script.js" defer></script>
     <script src="capabilities.js" defer></script>
@@ -57,13 +57,15 @@
           <a href="#contact">Contact</a>
         </nav>
         <div class="header-language">
-          <div class="language-switch" aria-label="Select language"><a href="index.html" lang="pl">PL</a><span aria-hidden="true">/</span><a href="en.html" lang="en" aria-current="page">EN</a></div>
+          <nav class="language-switch" aria-label="Select language">
+            <a href="index.html" lang="pl" hreflang="pl" title="Polski"><img class="language-flag" src="images/flag-pl.svg" alt="" width="20" height="14"><span class="language-name">Polski</span></a>
+            <a href="en.html" lang="en" hreflang="en" aria-current="page" title="English"><img class="language-flag" src="images/flag-gb.svg" alt="" width="20" height="14"><span class="language-name">English</span></a>
+          </nav>
         </div>
         <details class="mobile-menu">
           <summary aria-label="Open menu"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></summary>
           <nav aria-label="Mobile navigation">
             <a href="#approach">About</a><a href="#process">Our Process</a><a href="#capabilities">Capabilities</a><a href="#audiences">Who We Work With</a><a href="#contact">Contact</a>
-            <div class="language-switch" aria-label="Select language"><a href="index.html" lang="pl">PL</a><span aria-hidden="true">/</span><a href="en.html" lang="en" aria-current="page">EN</a></div>
           </nav>
         </details>
       </div>
@@ -251,7 +253,10 @@
         <div class="footer-bottom">
           <span>© <span id="current-year">2026</span> MEDFORGE</span>
           <div class="footer-utilities">
-            <nav class="language-switch" aria-label="Select language"><a href="index.html" lang="pl">PL</a><a href="en.html" lang="en" aria-current="page">EN</a></nav>
+            <nav class="language-switch" aria-label="Select language">
+              <a href="index.html" lang="pl" hreflang="pl"><img class="language-flag" src="images/flag-pl.svg" alt="" width="20" height="14"><span class="language-name">Polski</span></a>
+              <a href="en.html" lang="en" hreflang="en" aria-current="page"><img class="language-flag" src="images/flag-gb.svg" alt="" width="20" height="14"><span class="language-name">English</span></a>
+            </nav>
             <a class="footer-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
           </div>
         </div>
