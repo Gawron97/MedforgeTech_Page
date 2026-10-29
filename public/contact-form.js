@@ -64,7 +64,7 @@ function renderVerification() {
   try {
     widgetId = window.turnstile.render("#contact-verification", {
       sitekey: config.turnstileSiteKey,
-      action: "contact", language, theme: "light", size: "flexible",
+      action: "contact", language, theme: "dark", size: "flexible",
       callback: verificationCompleted,
       "expired-callback": verificationExpired,
       "error-callback": verificationFailed,

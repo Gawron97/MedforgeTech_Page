@@ -1,217 +1,267 @@
 <!doctype html>
-
 <html lang="pl">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Projektowanie prototypów, druk 3D, elektronika, oprogramowanie oraz prace badawczo-rozwojowe dla medycyny i przemysłu.">
-    <title>MedForge Tech | Prototypowanie, R&amp;D i technologie medyczne</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="alternate" hreflang="pl" href="index.html">
-    <link rel="alternate" hreflang="en" href="en.html">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#071827">
+    <meta name="description" content="Projektujemy, prototypujemy i rozwijamy technologie dla medycyny i przemysłu — precyzyjnie, interdyscyplinarnie i z myślą o realnym zastosowaniu.">
+    <title>MEDFORGE | Od pomysłu do działającego rozwiązania</title>
+    <link rel="canonical" href="https://medforge.tech/">
+    <link rel="alternate" hreflang="pl" href="https://medforge.tech/">
+    <link rel="alternate" hreflang="en" href="https://medforge.tech/en.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MEDFORGE">
+    <meta property="og:title" content="MEDFORGE | Od pomysłu do działającego rozwiązania">
+    <meta property="og:description" content="Projektujemy, prototypujemy i rozwijamy technologie dla medycyny i przemysłu.">
+    <meta property="og:url" content="https://medforge.tech/">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:image" content="https://medforge.tech/images/hero-lab-hq.webp">
+    <meta property="og:image:alt" content="Koncepcyjna wizualizacja medycznego stanowiska inżynierskiego MEDFORGE">
+    <link rel="icon" href="favicon.ico?v=20261028" sizes="16x16 32x32 48x48 64x64">
+    <link rel="icon" href="favicon.png?v=20261028" type="image/png" sizes="64x64">
+    <link rel="preload" href="fonts/open-sans-v18-latin-ext_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css?v=20261028-2">
+    <link rel="stylesheet" href="layout.css?v=20261028-2">
     <script src="contact-config.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="capabilities.js" defer></script>
     <script src="contact-form.js" type="module"></script>
   </head>
-  <body>
+  <body class="reference-layout">
     <a class="skip-link" href="#main">Przejdź do treści</a>
+    <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <filter id="logo-background" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  3 3 3 0 -0.9"/></filter>
+        <symbol id="icon-discover" viewBox="0 0 24 24"><path d="M9 18h6m-5 3h4M8 14a6 6 0 1 1 8 0c-1 1-1 2-1 4H9c0-2 0-3-1-4ZM3 6 1 5m20 0-2 1M4 15l-2 1m18-1 2 1"/></symbol>
+        <symbol id="icon-design" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7Zm0 0v10m9-5-9 5-9-5m9 5v10"/><path d="m7.5 4.5 9 5v5l-4.5 2.5-4.5-2.5v-5l9-5"/></symbol>
+        <symbol id="icon-build" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7Zm0 5v10m-5-5h10M3 7l4 2m14-2-4 2M3 17l4-2m14 2-4-2"/></symbol>
+        <symbol id="icon-validate" viewBox="0 0 24 24"><path d="M12 2c3 2 6 3 8 3v7c0 5-4 8-8 10-4-2-8-5-8-10V5c2 0 5-1 8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+        <symbol id="icon-translate" viewBox="0 0 24 24"><path d="M3 21h19M5 17V9h4v8m3 0V5h4v12m3 0V2h4v15M2 5l5-3 5 1 5-3"/></symbol>
+        <symbol id="icon-electronics" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9ZM9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4M19 9h4m-4 6h4"/></symbol>
+        <symbol id="icon-ai" viewBox="0 0 24 24"><path d="M9 3a3 3 0 0 0-5 3 4 4 0 0 0-2 7 4 4 0 0 0 4 6 3 3 0 0 0 6 1V5a3 3 0 0 0-3-2Zm6 0a3 3 0 0 1 5 3 4 4 0 0 1 2 7 4 4 0 0 1-4 6 3 3 0 0 1-6 1"/><path d="m6 8 3 2v5m-5-1 5 1m9-7-3 2v5m5-1-5 1M12 7h3m-3 10h3"/></symbol>
+        <symbol id="icon-research" viewBox="0 0 24 24"><path d="M8 2h8m-6 0v7L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3L14 9V2M7 14h10M9 18h.01M14 17h.01"/></symbol>
+        <symbol id="icon-integration" viewBox="0 0 24 24"><path d="M9 3H3v6h6Zm12 0h-6v6h6ZM9 15H3v6h6Zm12 0h-6v6h6ZM9 6h6M6 9v6m12-6v6m-9 3h6"/></symbol>
+        <symbol id="icon-medical" viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6Z"/></symbol>
+      </defs>
+    </svg>
 
     <header class="site-header">
       <div class="nav-shell">
-        <a class="brand" href="#top" aria-label="MedForge Tech — strona główna">
-          <span class="brand-mark" aria-hidden="true">MF</span>
-          <span class="brand-name">MedForge <strong>Tech</strong></span>
+        <a class="brand" href="#top" aria-label="MEDFORGE — strona główna">
+          <span class="brand-crop"><img src="images/logo.jpeg" alt="MEDFORGE — Engineering Medical Innovation" width="1600" height="533"></span>
         </a>
-
-        <nav class="desktop-nav" aria-label="Główna nawigacja">
-          <a href="#uslugi">Usługi</a>
-          <a href="#proces">Proces</a>
-          <a href="#obszary">Obszary</a>
-          <a href="#portfolio">Realizacje</a>
+        <nav class="desktop-nav" aria-label="Nawigacja główna">
+          <a href="#approach">O nas</a>
+          <a href="#process">Jak pracujemy</a>
+          <a href="#capabilities">Kompetencje</a>
+          <a href="#audiences">Dla kogo</a>
+          <a href="#contact">Kontakt</a>
         </nav>
-
-        <div class="header-actions">
-          <div class="language-switch" aria-label="Wybór języka">
-            <a class="is-active" href="index.html" lang="pl" aria-current="page">PL</a>
-            <a href="en.html" lang="en">EN</a>
-          </div>
-          <a class="header-cta" href="#kontakt">Porozmawiajmy <span aria-hidden="true">↗</span></a>
+        <div class="header-language">
+          <nav class="language-switch" aria-label="Wybór języka">
+            <a href="index.html" lang="pl" hreflang="pl" aria-current="page" title="Polski"><img class="language-flag" src="images/flag-pl.svg" alt="" width="20" height="14"><span class="language-name">Polski</span></a>
+            <a href="en.html" lang="en" hreflang="en" title="English"><img class="language-flag" src="images/flag-gb.svg" alt="" width="20" height="14"><span class="language-name">English</span></a>
+          </nav>
         </div>
-
         <details class="mobile-menu">
-          <summary aria-label="Otwórz menu">Menu</summary>
+          <summary aria-label="Otwórz menu"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></summary>
           <nav aria-label="Nawigacja mobilna">
-            <a href="#uslugi">Usługi</a>
-            <a href="#proces">Proces</a>
-            <a href="#obszary">Obszary</a>
-            <a href="#portfolio">Realizacje</a>
-            <a href="#kontakt">Kontakt</a>
-            <div class="mobile-language"><span>Język</span><a class="is-active" href="index.html" lang="pl" aria-current="page">PL</a><a href="en.html" lang="en">EN</a></div>
+            <a href="#approach">O nas</a><a href="#process">Jak pracujemy</a><a href="#capabilities">Kompetencje</a><a href="#audiences">Dla kogo</a><a href="#contact">Kontakt</a>
           </nav>
         </details>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero" id="top">
-        <div class="hero-copy">
-          <p class="eyebrow"><span></span> Prototypowanie · R&amp;D · Medtech</p>
-          <h1>Od pomysłu do <em>działającego</em> rozwiązania.</h1>
-          <p class="hero-lead">Projektujemy, prototypujemy i rozwijamy technologie dla medycyny i przemysłu — precyzyjnie, interdyscyplinarnie i z myślą o realnym zastosowaniu.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#kontakt">Opowiedz nam o projekcie <span aria-hidden="true">→</span></a>
-            <a class="text-link" href="#uslugi">Poznaj nasze możliwości <span aria-hidden="true">↓</span></a>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-background" aria-hidden="true"><img src="images/hero-lab-hq.webp" alt="" width="1774" height="887" fetchpriority="high" decoding="async"></div>
+        <div class="hero-grid section-shell">
+          <div class="hero-copy">
+            <p class="eyebrow">Inżynieria innowacji medycznych</p>
+            <h1 id="hero-title">Od pomysłu<br>do działającego<br>rozwiązania.</h1>
+            <p class="hero-lead">Projektujemy, prototypujemy i rozwijamy technologie dla medycyny i przemysłu — precyzyjnie, interdyscyplinarnie i z myślą o realnym zastosowaniu.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact">Porozmawiajmy o projekcie <span aria-hidden="true">→</span></a>
+              <a class="button button-outline" href="#capabilities">Poznaj nasze kompetencje</a>
+            </div>
           </div>
-          <div class="hero-notes" aria-label="Najważniejsze cechy">
-            <div><strong>Interdyscyplinarnie</strong><span>mechanika · elektronika · software</span></div>
-            <div><strong>Od pierwszego szkicu</strong><span>aż po testy rozwiązania</span></div>
-          </div>
-        </div>
 
-        <div class="hero-visual">
-          <div class="hero-image-wrap">
-            <img src="images/hero-medical-3d.jpg" alt="Inżynier biomedyczny oglądający wydrukowany w 3D model anatomiczny serca przy profesjonalnej drukarce żywicznej" width="1024" height="1536">
-          </div>
-          <div class="precision-card">
-            <span class="precision-icon" aria-hidden="true"></span>
-            <div><span>Nasze podejście</span><strong>Precyzja na każdym etapie</strong></div>
-          </div>
-          <div class="hero-index" aria-hidden="true">01 / 04</div>
+          <div class="hero-bottom"><a class="scroll-link" href="#approach">Przewiń <span aria-hidden="true">↓</span></a></div>
         </div>
       </section>
 
-      <section class="intro-section section-shell" id="uslugi">
-        <div class="section-heading">
-          <p class="eyebrow dark"><span></span> Kompetencje</p>
-          <h2>Jeden zespół.<br>Cały proces rozwoju.</h2>
-        </div>
-        <p class="section-intro">Łączymy projektowanie mechaniczne, elektronikę, oprogramowanie i prace badawcze. Dzięki temu pomysł nie ginie pomiędzy wykonawcami, a kolejne decyzje tworzą jeden spójny proces.</p>
-      </section>
-
-      <section class="services-grid section-shell" aria-label="Zakres usług">
-        <article class="service-card">
-          <span class="service-number">01</span>
-          <div class="service-symbol" aria-hidden="true"><i></i><i></i><i></i></div>
-          <h3>Prototypowanie i druk 3D</h3>
-          <p>Od modelu koncepcyjnego po funkcjonalny prototyp. Projektujemy elementy, dobieramy technologię i przygotowujemy krótkie serie.</p>
-          <ul aria-label="Obszary prototypowania"><li>CAD</li><li>Druk 3D</li><li>Krótkie serie</li></ul>
-        </article>
-
-        <article class="service-card">
-          <span class="service-number">02</span>
-          <div class="service-symbol" aria-hidden="true"><i></i><i></i><i></i></div>
-          <h3>Elektronika i oprogramowanie</h3>
-          <p>Łączymy warstwę sprzętową z oprogramowaniem, tworząc kompletne i gotowe do testowania rozwiązania technologiczne.</p>
-          <ul aria-label="Obszary elektroniki"><li>Embedded</li><li>Aplikacje</li><li>Integracje</li></ul>
-        </article>
-
-        <article class="service-card">
-          <span class="service-number">03</span>
-          <div class="service-symbol" aria-hidden="true"><i></i><i></i><i></i></div>
-          <h3>Badania i rozwój</h3>
-          <p>Prowadzimy prace badawczo-rozwojowe oraz zapewniamy wsparcie techniczne, eksperckie i doradcze na kolejnych etapach projektu.</p>
-          <ul aria-label="Obszary badań"><li>R&amp;D</li><li>Testy</li><li>Doradztwo</li></ul>
-        </article>
-      </section>
-
-      <section class="process-section" id="proces">
-        <div class="process-inner section-shell">
-          <div class="process-heading">
-            <p class="eyebrow light"><span></span> Jak pracujemy</p>
-            <h2>Krótka droga od założenia do weryfikacji.</h2>
-            <p>Każdy projekt ma inne tempo i skalę. Stały pozostaje porządek: najpierw rozumiemy problem, potem budujemy i sprawdzamy.</p>
-            <a class="button button-light" href="#kontakt">Zacznijmy od rozmowy <span aria-hidden="true">↗</span></a>
+      <section class="approach-section section-pad" id="approach" aria-labelledby="approach-title">
+        <div class="section-shell approach-grid">
+          <div class="approach-intro">
+            <p class="eyebrow">Nasze podejście</p>
+            <p>Łączymy wiedzę naukową, inżynierię i sztuczną inteligencję, aby tworzyć, testować i wdrażać innowacyjne technologie medyczne.</p>
+            <div class="media-frame"><img src="images/approach-engineering-hq.webp" alt="Wizualizacja precyzyjnego podzespołu optycznego na stanowisku inżynierskim" width="2172" height="724" loading="lazy" decoding="async"></div>
           </div>
-          <ol class="process-list">
-            <li><span>01</span><div><h3>Rozpoznajemy potrzebę</h3><p>Zaczynamy od celu, ograniczeń i realnego kontekstu użycia rozwiązania.</p></div></li>
-            <li><span>02</span><div><h3>Projektujemy i prototypujemy</h3><p>Szybko przekładamy założenia na model, elektronikę i działający prototyp.</p></div></li>
-            <li><span>03</span><div><h3>Testujemy i rozwijamy</h3><p>Weryfikujemy rozwiązanie, wyciągamy wnioski i przygotowujemy kolejny etap wdrożenia.</p></div></li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="audience-section section-shell" id="obszary">
-        <div class="audience-image">
-          <img src="images/research.jpg" alt="Zespół prowadzący prace badawcze w laboratorium" width="1200" height="1800" loading="lazy">
-          <span class="image-label">Badania · analiza · rozwój</span>
-        </div>
-        <div class="audience-copy">
-          <p class="eyebrow dark"><span></span> Dla kogo</p>
-          <h2>Technologia, która odpowiada na realną potrzebę.</h2>
-          <p>Wspieramy zespoły medyczne i przemysłowe rozwijające nowe produkty, urządzenia i procesy. Realizujemy także prototypy i wydruki 3D dla klientów indywidualnych.</p>
-          <div class="audience-points">
-            <div><span>01</span><div><strong>Sektor medyczny</strong><p>Prototypy urządzeń, modele i rozwiązania wspierające rozwój technologii medycznych.</p></div></div>
-            <div><span>02</span><div><strong>Firmy technologiczne i przemysł</strong><p>Wsparcie konstrukcyjne, elektroniczne i programistyczne dla nowych produktów.</p></div></div>
-            <div><span>03</span><div><strong>Klienci indywidualni</strong><p>Druk 3D i prototypowanie pomysłów wymagających technicznego przygotowania.</p></div></div>
+          <div class="approach-copy">
+            <h2 id="approach-title">Jeden zespół.<br>Cały proces rozwoju.</h2>
+            <p>Od pomysłu, przez prototypowanie i walidację, aż po gotowe rozwiązanie.</p>
           </div>
         </div>
       </section>
 
-      <section class="portfolio-section" id="portfolio">
-        <div class="portfolio-head section-shell">
-          <div><p class="eyebrow dark"><span></span> Obszary realizacji</p><h2>Technologia w praktyce.</h2></div>
-          <p>Od stanowiska badawczego, przez prototyp urządzenia, aż po rozwiązanie gotowe do kolejnego etapu rozwoju.</p>
-        </div>
-        <div class="portfolio-grid section-shell">
-          <article class="project-card project-large">
-            <div class="project-image"><img src="images/prototyping.jpg" alt="Specjalista obsługujący urządzenie medyczne" width="1200" height="800" loading="lazy"></div>
-            <div class="project-meta"><span>Technologie medyczne</span><strong>Urządzenia i stanowiska testowe</strong></div>
-          </article>
-          <article class="project-card">
-            <div class="project-image"><img src="images/electronics.jpg" alt="Praca laboratoryjna z wykorzystaniem aparatury diagnostycznej" width="1200" height="800" loading="lazy"></div>
-            <div class="project-meta"><span>Badania i rozwój</span><strong>Prototypy do weryfikacji</strong></div>
-          </article>
+      <section class="process-section section-pad" id="process" aria-labelledby="process-title">
+        <div class="section-shell">
+          <div class="section-heading split-heading">
+            <div><p class="eyebrow">Jak pracujemy</p><h2 id="process-title">Iteracyjny proces<br>od pomysłu do wdrożenia.</h2></div>
+            <p>Każdy projekt ma inne tempo i skalę. Łączymy wiedzę inżynieryjną, kliniczną i regulacyjną, a konsultacje towarzyszą nam na każdym etapie.</p>
+          </div>
+          <div class="process-diagram">
+            <div class="consultation">
+              <h3>Konsultacje</h3>
+              <p>Doradztwo eksperckie · wsparcie kliniczne · wytyczne regulacyjne · ciągła informacja zwrotna</p>
+              <div class="consultation-ticks" aria-hidden="true"><span>↓</span><span>↓</span><span>↓</span><span>↓</span><span>↓</span></div>
+            </div>
+            <ol class="process-grid">
+              <li class="process-card">
+                <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-discover"/></svg><span class="step-number">01</span></div>
+                <h3>Rozpoznanie potrzeby</h3>
+                <div class="media-frame"><img src="images/process-discovery-v2.webp" alt="Wizualizacja koncepcyjna lekarza i inżyniera omawiających potrzebę oraz szkic urządzenia" width="1774" height="887" loading="lazy" decoding="async"></div>
+                <p>Wspólnie definiujemy cel, wymagania i kontekst kliniczny.</p>
+              </li>
+              <li class="process-card">
+                <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-design"/></svg><span class="step-number">02</span></div>
+                <h3>Projektowanie</h3>
+                <div class="media-frame"><img src="images/process-design-v2.webp" alt="Wizualizacja koncepcyjna modelu CAD obudowy urządzenia pomiarowego" width="1774" height="887" loading="lazy" decoding="async"></div>
+                <p>Opracowujemy koncepcję, model, elektronikę oraz algorytmy AI.</p>
+              </li>
+              <li class="process-card">
+                <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-build"/></svg><span class="step-number">03</span></div>
+                <h3>Budowa</h3>
+                <div class="media-frame"><img src="images/process-build-v2.webp" alt="Wizualizacja koncepcyjna montażu elektroniki w obudowie prototypu" width="1774" height="887" loading="lazy" decoding="async"></div>
+                <p>Wykonujemy prototyp. Integrujemy komponenty, oprogramowanie i algorytmy.</p>
+              </li>
+              <li class="process-card">
+                <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-validate"/></svg><span class="step-number">04</span></div>
+                <h3>Walidacja</h3>
+                <div class="media-frame"><img src="images/process-validate-v2.webp" alt="Wizualizacja koncepcyjna testu funkcjonalnego prototypu z aparaturą pomiarową" width="1774" height="887" loading="lazy" decoding="async"></div>
+                <p>Testujemy, oceniamy wyniki i iterujemy rozwiązanie.</p>
+              </li>
+              <li class="process-card">
+                <div class="step-top"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-translate"/></svg><span class="step-number">05</span></div>
+                <h3>Wdrożenie</h3>
+                <div class="media-frame"><img src="images/process-translate-v2.webp" alt="Wizualizacja koncepcyjna gotowych urządzeń na stanowisku przygotowania do montażu" width="1774" height="887" loading="lazy" decoding="async"></div>
+                <p>Przygotowujemy rozwiązanie do wdrożenia, skalowania i komercjalizacji.</p>
+              </li>
+            </ol>
+            <div class="iteration">
+              <svg class="iteration-path" viewBox="0 0 1000 70" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="return-arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="m1 1 3 3-3 3" fill="none" stroke="currentColor" stroke-width="1.4"/></marker></defs><path d="M700 2 V23 Q700 40 683 40 H317 Q300 40 300 23 V7" marker-end="url(#return-arrow)"/></svg>
+              <p><span aria-hidden="true">↶</span> Iteracja na podstawie wyników</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="contact-section" id="kontakt">
-        <div class="contact-inner section-shell">
-          <div><p class="eyebrow light"><span></span> Nowy projekt</p><h2>Masz pomysł?<br>Nadajmy mu formę.</h2></div>
-          <div class="contact-copy">
-            <p>Napisz, nad czym pracujesz i na jakim etapie jest projekt. Wrócimy z pytaniami, które pozwolą określić najlepszy kolejny krok.</p>
-            <details class="contact-panel" id="contact-form-panel">
-              <summary class="contact-toggle">Opowiedz o projekcie <span aria-hidden="true">+</span></summary>
-              <form class="contact-form" id="contact-form" aria-label="Formularz kontaktowy" aria-describedby="contact-note">
-                <fieldset class="contact-fields">
-                  <legend class="visually-hidden">Twoje dane i wiadomość</legend>
-                  <div class="contact-field-row">
-                    <div class="contact-field">
-                      <label for="contact-name">Imię</label>
-                      <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" required>
-                    </div>
-                    <div class="contact-field">
-                      <label for="contact-email">E-mail</label>
-                      <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
-                    </div>
-                  </div>
-                  <div class="contact-field">
-                    <label for="contact-message">Wiadomość</label>
-                    <textarea id="contact-message" name="message" rows="6" maxlength="5000" placeholder="Co chcesz stworzyć i na jakim etapie jesteś?" required></textarea>
-                  </div>
-                </fieldset>
-                <p class="contact-note" id="contact-note">Podaj adres, na który możemy odpowiedzieć w sprawie Twojego projektu.</p>
-                <div class="contact-verification" id="contact-verification"></div>
-                <button class="button button-light contact-submit" id="contact-submit" type="submit" disabled>Wyślij wiadomość</button>
-                <p class="contact-status" id="contact-status" data-state="error" role="status" aria-live="polite" aria-atomic="true">Formularz jest chwilowo niedostępny. Spróbuj ponownie później.</p>
-                <noscript><p class="contact-note">Aby wysłać formularz, włącz JavaScript w przeglądarce.</p></noscript>
-              </form>
-            </details>
+      <section class="capabilities-section section-pad" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-shell">
+          <div class="section-heading capabilities-heading">
+            <div><p class="eyebrow">Kompetencje</p><h2 id="capabilities-title">Kompleksowe wsparcie technologiczne.</h2></div>
+            <div class="capability-controls" hidden>
+              <button class="capability-nav" type="button" data-direction="-1" aria-label="Poprzednie kompetencje" aria-controls="capability-carousel"><span aria-hidden="true">←</span></button>
+              <button class="capability-nav" type="button" data-direction="1" aria-label="Następne kompetencje" aria-controls="capability-carousel"><span aria-hidden="true">→</span></button>
+            </div>
           </div>
+          <div class="capabilities-grid" id="capability-carousel" role="region" aria-label="Lista kompetencji" tabindex="0">
+            <article class="capability-card">
+              <span class="capability-number" aria-hidden="true">01</span>
+              <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-discover"/></svg><h3>Prototypowanie i druk 3D</h3></div>
+              <div class="media-frame"><img src="images/capabilities-3d-printing-hq.webp" alt="Wizualizacja białego prototypu o złożonej geometrii do druku 3D" width="1538" height="1022" loading="lazy" decoding="async"></div>
+              <div class="capability-body"><p>Od koncepcji do funkcjonalnego prototypu.</p></div>
+            </article>
+            <article class="capability-card">
+              <span class="capability-number" aria-hidden="true">02</span>
+              <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-electronics"/></svg><h3>Elektronika i systemy wbudowane</h3></div>
+              <div class="media-frame"><img src="images/capabilities-electronics-hq.webp" alt="Wizualizacja układu scalonego na płytce drukowanej" width="1536" height="1024" loading="lazy" decoding="async"></div>
+              <div class="capability-body"><p>Projektowanie i integracja układów elektronicznych.</p></div>
+            </article>
+            <article class="capability-card">
+              <span class="capability-number" aria-hidden="true">03</span>
+              <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-ai"/></svg><h3>AI i analiza danych</h3></div>
+              <div class="media-frame"><img src="images/capabilities-ai-analysis-v2.webp" alt="Wizualizacja koncepcyjna segmentacji struktur naczyniowych na obrazie medycznym" width="1774" height="887" loading="lazy" decoding="async"></div>
+              <div class="capability-body"><p>Uczenie maszynowe, analiza obrazów i sygnałów.</p></div>
+            </article>
+            <article class="capability-card">
+              <span class="capability-number" aria-hidden="true">04</span>
+              <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-research"/></svg><h3>Badania i rozwój</h3></div>
+              <div class="media-frame"><img src="images/capabilities-research-validation-v2.webp" alt="Wizualizacja koncepcyjna eksperymentalnego stanowiska badawczego z czujnikiem i komorą testową" width="1774" height="887" loading="lazy" decoding="async"></div>
+              <div class="capability-body"><p>Testy, walidacja i optymalizacja.</p></div>
+            </article>
+            <article class="capability-card">
+              <span class="capability-number" aria-hidden="true">05</span>
+              <div class="capability-heading"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-integration"/></svg><h3>Dobór i integracja komponentów</h3></div>
+              <div class="media-frame"><img src="images/capabilities-component-integration-v2.webp" alt="Wizualizacja koncepcyjna obudowy, elektroniki i czujnika urządzenia w widoku rozłożonym" width="1774" height="887" loading="lazy" decoding="async"></div>
+              <div class="capability-body"><p>Komponenty mechaniczne, elektroniczne, specjalistyczne, infrastruktura.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="audiences-section section-pad" id="audiences" aria-labelledby="audiences-title">
+        <div class="section-shell">
+          <div class="section-heading"><p class="eyebrow">Dla kogo</p><h2 id="audiences-title">Technologia, która odpowiada na realną potrzebę.</h2></div>
+          <div class="audiences-grid">
+            <article class="audience-card"><div class="media-frame"><img src="images/audiences-medical-v2.webp" alt="Wizualizacja koncepcyjna lekarza i inżyniera oceniających prototyp w pracowni medycznej" width="1983" height="793" loading="lazy" decoding="async"></div><h3>Sektor medyczny</h3><p>Prototypy, urządzenia i rozwiązania wspierające rozwój technologii medycznych.</p></article>
+            <article class="audience-card"><div class="media-frame"><img src="images/audiences-industrial-hq.webp" alt="Wizualizacja precyzyjnych komponentów dla przemysłu" width="2006" height="784" loading="lazy" decoding="async"></div><h3>Firmy technologiczne i przemysł</h3><p>Wsparcie konstrukcyjne, elektroniczne i programistyczne.</p></article>
+            <article class="audience-card"><div class="media-frame"><img src="images/audiences-individual-v2.webp" alt="Wizualizacja koncepcyjna dłoni z użytkowym elementem wydrukowanym w 3D obok szkicu i suwmiarki" width="1983" height="793" loading="lazy" decoding="async"></div><h3>Klienci indywidualni</h3><p>Druk 3D i prototypowanie pomysłów wymagających technicznego przygotowania.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section section-pad" id="contact" aria-labelledby="contact-title">
+        <div class="contact-pattern" aria-hidden="true"></div>
+        <div class="section-shell contact-grid">
+          <div class="contact-copy"><h2 id="contact-title">Masz pomysł na projekt?</h2><p>Porozmawiajmy o Twoich potrzebach i możliwościach współpracy.</p></div>
+          <details class="contact-panel" id="contact-form-panel">
+            <summary class="contact-toggle">Skontaktuj się z nami <span aria-hidden="true">→</span></summary>
+            <form class="contact-form" id="contact-form" aria-label="Formularz kontaktowy" aria-describedby="contact-note">
+              <fieldset class="contact-fields">
+                <legend class="visually-hidden">Twoje dane i wiadomość</legend>
+                <div class="contact-field-row">
+                  <div class="contact-field"><label for="contact-name">Imię</label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" required></div>
+                  <div class="contact-field"><label for="contact-email">E-mail</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+                </div>
+                <div class="contact-field"><label for="contact-message">Wiadomość</label><textarea id="contact-message" name="message" rows="5" maxlength="5000" placeholder="Co chcesz stworzyć i na jakim etapie jesteś?" required></textarea></div>
+              </fieldset>
+              <p class="contact-note" id="contact-note">Podaj adres, na który możemy odpowiedzieć w sprawie Twojego projektu.</p>
+              <div class="contact-verification" id="contact-verification"></div>
+              <button class="button button-primary contact-submit" id="contact-submit" type="submit" disabled>Wyślij wiadomość</button>
+              <p class="contact-status" id="contact-status" data-state="error" role="status" aria-live="polite" aria-atomic="true">Formularz jest chwilowo niedostępny. Spróbuj ponownie później.</p>
+              <noscript><p class="contact-note">Aby wysłać formularz, włącz JavaScript w przeglądarce.</p></noscript>
+            </form>
+          </details>
         </div>
       </section>
     </main>
 
+
     <footer class="site-footer">
-      <div class="footer-main section-shell">
-        <div class="footer-brand">
-          <a class="brand brand-light" href="#top" aria-label="MedForge Tech — do góry"><span class="brand-mark">MF</span><span class="brand-name">MedForge <strong>Tech</strong></span></a>
-          <p>Projektujemy rozwiązania, które<br>mają działać poza ekranem.</p>
+      <div class="section-shell">
+        <div class="footer-main">
+          <div class="footer-identity">
+            <a class="brand" href="#top" aria-label="MEDFORGE — do góry"><span class="brand-crop"><img src="images/logo.jpeg" alt="MEDFORGE — Engineering Medical Innovation" width="1600" height="533" loading="lazy"></span></a>
+            <p>Projektujemy i rozwijamy technologie dla medycyny i przemysłu.</p>
+          </div>
+          <div class="footer-perspective">
+            <p class="footer-kicker">Łączymy perspektywy</p>
+            <p class="footer-statement">Nauka. Inżynieria.<br><span>Realne zastosowanie.</span></p>
+            <a class="footer-contact" href="#contact">Porozmawiajmy <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <div class="footer-column"><span>Nawigacja</span><a href="#uslugi">Usługi</a><a href="#proces">Proces</a><a href="#obszary">Obszary</a><a href="#portfolio">Realizacje</a></div>
-        <div class="footer-column"><span>Kontakt</span><a href="#kontakt">Opowiedz o projekcie ↗</a><p>Polska</p><div class="footer-language"><a class="is-active" href="index.html" lang="pl" aria-current="page">PL</a><a href="en.html" lang="en">EN</a></div></div>
+        <div class="footer-bottom">
+          <span>© <span id="current-year">2026</span> MEDFORGE</span>
+          <div class="footer-utilities">
+            <nav class="language-switch" aria-label="Wybór języka">
+              <a href="index.html" lang="pl" hreflang="pl" aria-current="page"><img class="language-flag" src="images/flag-pl.svg" alt="" width="20" height="14"><span class="language-name">Polski</span></a>
+              <a href="en.html" lang="en" hreflang="en"><img class="language-flag" src="images/flag-gb.svg" alt="" width="20" height="14"><span class="language-name">English</span></a>
+            </nav>
+            <a class="footer-top" href="#top">Do góry <span aria-hidden="true">↑</span></a>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom section-shell"><span>© <span id="current-year">2026</span> MedForge Tech</span><a href="#top">Do góry <span aria-hidden="true">↑</span></a></div>
     </footer>
   </body>
 </html>
